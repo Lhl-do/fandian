@@ -1,0 +1,13 @@
+{
+  "name": "fandian",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "按口味喜好与忌口推荐附近餐厅，含地图、导航与评价",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
