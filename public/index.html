@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<title>饭点 · 附近好店推荐</title>
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/prefs.css">
+</head>
+<body>
+
+<header class="app-header">
+  <div class="brand">
+    <h1>饭点</h1>
+    <span class="brand-sub">按口味与忌口挑附近的小馆</span>
+  </div>
+  <form id="search-form" class="search-form" role="search" autocomplete="off">
+    <label class="sr-only" for="search-input">搜索门店或菜系</label>
+    <input id="search-input" name="keyword" type="search" enterkeyhint="search" placeholder="搜店名、菜系，如：面馆">
+    <button type="submit" class="btn btn-primary">搜索</button>
+  </form>
+</header>
+
+<div id="status-bar" class="status-bar" data-tone="info" role="status" aria-live="polite">正在读取配置…</div>
+
+<main class="layout">
+  <section class="map-pane" aria-label="地图区域">
+    <div id="map" class="map"></div>
+    <p id="map-hint" class="map-hint">地图加载中…</p>
+    <div class="map-tools">
+      <button id="locate-btn" type="button" class="btn btn-solid">用我的位置</button>
+    </div>
+  </section>
+
+  <section class="side-pane">
+
+    <section id="detail-panel" class="detail-panel" aria-label="门店详情" aria-hidden="true">
+      <header class="detail-head">
+        <h2 id="detail-name" class="detail-name">门店详情</h2>
+        <span id="detail-score" class="score-badge" hidden></span>
+        <button id="detail-close" class="icon-btn" type="button" aria-label="关闭详情">×</button>
+      </header>
+      <dl id="detail-facts" class="fact-list"></dl>
+      <div id="detail-reasons" class="detail-block"></div>
+      <div id="detail-warnings" class="detail-block detail-warn" hidden></div>
+      <p class="detail-note">忌口与饮食约束的判断依据是店名、菜系与标签关键词，不含菜品配料表；点单前请再向店家确认。</p>
+      <div id="detail-photos" class="photo-grid" hidden></div>
+      <div class="detail-actions">
+        <button id="route-btn" type="button" class="btn btn-primary">看路线</button>
+        <button id="nav-amap-btn" type="button" class="btn">高德导航</button>
+        <button id="nav-baidu-btn" type="button" class="btn">百度导航</button>
+      </div>
+      <p id="route-info" class="route-info" data-tone="info" hidden></p>
+    </section>
+
+    <div class="prefs-pane">
+      <button id="prefs-toggle" class="pane-toggle" type="button" aria-expanded="false" aria-controls="prefs-panel">
+        <span>偏好设置</span>
+        <span class="pane-toggle-hint">展开</span>
+      </button>
+      <div id="prefs-panel" class="prefs-panel" hidden></div>
+    </div>
+
+    <div class="list-pane">
+      <div class="list-head">
+        <h2>推荐结果</h2>
+        <span id="result-count" class="list-count"></span>
+      </div>
+      <div id="result-list" class="result-list" aria-live="polite"></div>
+      <p class="list-note">忌口提示按店名、菜系与标签关键词判断，不含配料表，点单前请向店家确认。</p>
+    </div>
+
+  </section>
+</main>
+
+<noscript><p class="noscript">需要开启 JavaScript 才能使用饭点。</p></noscript>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
