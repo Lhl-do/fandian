@@ -1,0 +1,17 @@
+# Render.com 部署配置（可选：用 Blueprint 方式一键建服务）
+# 主流程也可以直接在 Render 控制台填 Build / Start 命令，见 DEPLOY.md
+services:
+  - type: web
+    name: fandian
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      # 高德 Key 不在仓库里存，部署后在 Render 控制台手工填
+      - key: AMAP_WEB_KEY
+        sync: false
